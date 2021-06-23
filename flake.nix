@@ -11,12 +11,14 @@
       in {
         devShell = pkgs.mkShell {
           name = "smart3network";
-          buildInputs = [ pkgs.nodejs-14_x ]; 
-          shellHook = ''
+	  nativeBuildInputs = [ pkgs.bashInteractive ];
+          buildInputs = [ pkgs.nodejs-14_x ];
+	  shellHook = ''
             export PATH="/home/plumps/.npm-packages/bin:$PATH"
           '';
 
           NPM_CONFIG_PREFIX = "/home/plumps/.npm-packages";
+	  
         };
       });
 }
