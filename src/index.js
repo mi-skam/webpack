@@ -1,5 +1,7 @@
-import App from "./components/App";
+import aframe from "aframe";
+import "aframe-environment-component";
+import "aframe-particle-system-component";
 
-let rootEl = document.getElementById("root");
+import "./components/spin";
 
-App(rootEl);
+import "./scene.html";

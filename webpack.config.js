@@ -29,17 +29,23 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-          },
-        ],
+        use: ["aframe-super-hot-loader", "babel-loader"],
+      },
+      {
+        test: /scene.*\.html$/,
+        exclude: /(node_modules)/,
+        use: ["aframe-super-hot-html-loader"],
+      },
+      {
+        test: /\.glsl/,
+        exclude: /(node_modules)/,
+        loader: "webpack-glsl-loader",
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ template: "./src/templates/index.html" }),
   ],
 
   target: isDevelopment ? "web" : "browserslist",
